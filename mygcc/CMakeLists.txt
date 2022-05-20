@@ -1,0 +1,13 @@
+cmake_minimum_required (VERSION 3.13)
+set(CMAKE_CXX_STANDARD 11)
+
+set(PROJECT_NAME mygcc)
+project(${PROJECT_NAME})
+
+set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/../bin)
+message("-- CMAKE_SOURCE_DIR: ${CMAKE_SOURCE_DIR}")
+
+file(GLOB_RECURSE SRC_FILES *.cpp)
+source_group(TREE ${CMAKE_SOURCE_DIR} FILES ${SRC_FILES})
+add_executable(${PROJECT_NAME} ${SRC_FILES})
+install(TARGETS ${PROJECT_NAME} DESTINATION .)
